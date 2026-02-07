@@ -5,144 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Momo's Beauty Room | 精选美妆货架</title>
     <style>
-        :root {
-            --bg: #fffbfb;
-            --accent: #ff85a2; 
-            --dark: #2d3436;
-            --shadow: 0 10px 30px rgba(255, 133, 162, 0.1);
-        }
-
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            margin: 0;
-            background-color: var(--bg);
-            color: var(--dark);
-        }
-
-        header {
-            background: white;
-            padding: 25px 0;
-            text-align: center;
-            border-bottom: 1px solid #ffeef2;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .logo {
-            font-size: 26px;
-            font-weight: 300;
-            color: var(--dark);
-            letter-spacing: 5px;
-            text-transform: uppercase;
-        }
-
-        .search-section {
-            padding: 30px 15px;
-            background: linear-gradient(to bottom, #fff, #fff0f3);
-            text-align: center;
-        }
-
-        #searchInput {
-            padding: 15px 25px;
-            width: 85%;
-            max-width: 500px;
-            border-radius: 50px;
-            border: 2px solid #ffeef2;
-            outline: none;
-            font-size: 16px;
-            transition: 0.3s;
-        }
-
-        #searchInput:focus {
-            border-color: var(--accent);
-            box-shadow: 0 5px 20px rgba(255, 133, 162, 0.2);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 20px auto;
-            padding: 0 20px;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid #f9f9f9;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            background: rgba(255, 255, 255, 0.9);
-            color: var(--accent);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: bold;
-            backdrop-filter: blur(5px);
-            z-index: 10;
-        }
-
-        .card img {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            background: #eee;
-        }
-
-        .card-content {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .card-content h3 {
-            margin: 0 0 15px 0;
-            font-size: 15px;
-            font-weight: 600;
-            height: 45px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-transform: uppercase;
-        }
-
-        .btn {
-            display: block;
-            padding: 12px;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 600;
-            margin-bottom: 10px;
-            font-size: 13px;
-            transition: 0.3s;
-        }
-
+        :root { --bg: #fffbfb; --accent: #ff85a2; --dark: #2d3436; --shadow: 0 10px 30px rgba(255, 133, 162, 0.1); }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); }
+        header { background: white; padding: 25px 0; text-align: center; border-bottom: 1px solid #ffeef2; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 26px; font-weight: 300; color: var(--dark); letter-spacing: 5px; text-transform: uppercase; }
+        .search-section { padding: 30px 15px; background: linear-gradient(to bottom, #fff, #fff0f3); text-align: center; }
+        #searchInput { padding: 15px 25px; width: 85%; max-width: 500px; border-radius: 50px; border: 2px solid #ffeef2; outline: none; font-size: 16px; transition: 0.3s; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 20px; overflow: hidden; transition: all 0.4s ease; border: 1px solid #f9f9f9; position: relative; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+        .badge { position: absolute; top: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: var(--accent); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; z-index: 10; }
+        
+        /* 让图片点击区域充满卡片顶部 */
+        .card a { text-decoration: none; color: inherit; }
+        .card img { width: 100%; height: 280px; object-fit: cover; background: #eee; display: block; }
+        
+        .card-content { padding: 20px; text-align: center; }
+        .card-content h3 { margin: 0 0 15px 0; font-size: 15px; font-weight: 600; height: 45px; display: flex; align-items: center; justify-content: center; text-transform: uppercase; }
+        .btn { display: block; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 600; margin-bottom: 10px; font-size: 13px; transition: 0.3s; }
         .btn-amazon { background: #232f3e; color: white !important; }
         .btn-ali { background: white; color: #ff6a00 !important; border: 1.5px solid #ff6a00; }
-
-        footer {
-            padding: 60px 20px;
-            text-align: center;
-            color: #bdc3c7;
-            font-size: 12px;
-            letter-spacing: 2px;
-        }
+        footer { padding: 60px 20px; text-align: center; color: #bdc3c7; font-size: 12px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
@@ -157,9 +40,9 @@
     
     <div class="card" data-title="001 Valentine Gift 情人节 礼物">
         <div class="badge">#001</div>
-        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800">
+        <a href="https://amzn.to/3ZRkXS6"><img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800"></a>
         <div class="card-content">
-            <h3>VALENTINE'S SPECIAL GIFT</h3>
+            <a href="https://amzn.to/3ZRkXS6"><h3>VALENTINE'S SPECIAL GIFT</h3></a>
             <a href="https://amzn.to/3ZRkXS6" class="btn btn-amazon">SHOP ON AMAZON</a>
             <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
         </div>
@@ -167,9 +50,9 @@
 
     <div class="card" data-title="003 Nail Art Press-on Nails Manicure 美甲 穿戴甲">
         <div class="badge">#003</div>
-        <img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/02.png?raw=true">
+        <a href="https://amzn.to/49WkAvB"><img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/02.png?raw=true"></a>
         <div class="card-content">
-            <h3>TRENDY NAIL ART DESIGN</h3>
+            <a href="https://amzn.to/49WkAvB"><h3>TRENDY NAIL ART DESIGN</h3></a>
             <a href="https://amzn.to/49WkAvB" class="btn btn-amazon">SHOP ON AMAZON</a>
             <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
         </div>
@@ -177,9 +60,9 @@
 
     <div class="card" data-title="004 Pimple Patches Acne Cover Invisible 痘痘贴 隐形">
         <div class="badge">#004</div>
-        <img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/04.png?raw=true">
+        <a href="https://amzn.to/3ZOLG1z"><img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/04.png?raw=true"></a>
         <div class="card-content">
-            <h3>INVISIBLE ACNE PATCHES</h3>
+            <a href="https://amzn.to/3ZOLG1z"><h3>INVISIBLE ACNE PATCHES</h3></a>
             <a href="https://amzn.to/3ZOLG1z" class="btn btn-amazon">SHOP ON AMAZON</a>
             <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
         </div>
@@ -187,9 +70,9 @@
 
     <div class="card" data-title="005 Facial Mask Sheet Mask Hydrating 面膜 补水">
         <div class="badge">#005</div>
-        <img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/05.png?raw=true">
+        <a href="https://amzn.to/4a79H8P"><img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/05.png?raw=true"></a>
         <div class="card-content">
-            <h3>HYDRATING FACIAL MASK</h3>
+            <a href="https://amzn.to/4a79H8P"><h3>HYDRATING FACIAL MASK</h3></a>
             <a href="https://amzn.to/4a79H8P" class="btn btn-amazon">SHOP ON AMAZON</a>
             <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
         </div>
@@ -197,9 +80,9 @@
 
     <div class="card" data-title="006 Skin Care Routine Essence Serum 护肤 精华">
         <div class="badge">#006</div>
-        <img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/06.png?raw=true">
+        <a href="https://amzn.to/3LEifvV"><img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/06.png?raw=true"></a>
         <div class="card-content">
-            <h3>DAILY ESSENTIAL SKIN CARE</h3>
+            <a href="https://amzn.to/3LEifvV"><h3>DAILY ESSENTIAL SKIN CARE</h3></a>
             <a href="https://amzn.to/3LEifvV" class="btn btn-amazon">SHOP ON AMAZON</a>
             <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
         </div>
@@ -207,9 +90,9 @@
 
     <div class="card" data-title="007 Anti-Aging Cream Retinol Wrinkle Repair 抗老 面霜">
         <div class="badge">#007</div>
-        <img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/07.png?raw=true">
+        <a href="https://amzn.to/4qZWmWX"><img src="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/07.png?raw=true"></a>
         <div class="card-content">
-            <h3>ANTI-AGING REPAIR CREAM</h3>
+            <a href="https://amzn.to/4qZWmWX"><h3>ANTI-AGING REPAIR CREAM</h3></a>
             <a href="https://amzn.to/4qZWmWX" class="btn btn-amazon">SHOP ON AMAZON</a>
             <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
         </div>
