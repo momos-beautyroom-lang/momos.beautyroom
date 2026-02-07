@@ -3,39 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Momo's Beauty Room</title>
+    <title>Momo's Beauty Room | 精选货架</title>
     <style>
-        :root { --bg: #fffbfb; --accent: #ff85a2; --dark: #2d3436; }
-        body { font-family: sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); text-align: center; }
-        header { background: white; padding: 20px; border-bottom: 1px solid #ffeef2; }
-        .container { max-width: 1200px; margin: 20px auto; padding: 0 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border: 1px solid #eee; display: flex; flex-direction: column; }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
-        .card-content { padding: 15px; }
-        .btn { display: block; padding: 10px; border-radius: 10px; text-decoration: none; font-weight: bold; margin-bottom: 10px; font-size: 14px; }
+        :root { --bg: #fffbfb; --accent: #ff85a2; --dark: #2d3436; --shadow: 0 10px 30px rgba(255, 133, 162, 0.1); }
+        body { font-family: sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); }
+        header { background: white; padding: 25px 0; text-align: center; border-bottom: 1px solid #ffeef2; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 26px; font-weight: 300; letter-spacing: 5px; text-transform: uppercase; }
+        .search-section { padding: 30px 15px; background: linear-gradient(to bottom, #fff, #fff0f3); text-align: center; }
+        #searchInput { padding: 15px 25px; width: 85%; max-width: 500px; border-radius: 50px; border: 2px solid #ffeef2; outline: none; font-size: 16px; }
+        .container { max-width: 1200px; margin: 20px auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #f9f9f9; position: relative; display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: var(--shadow); }
+        .badge { position: absolute; top: 15px; left: 15px; background: rgba(255, 255, 255, 0.9); color: var(--accent); padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: bold; backdrop-filter: blur(5px); z-index: 10; }
+        .card img { width: 100%; height: 280px; object-fit: cover; }
+        .card-content { padding: 20px; text-align: center; }
+        .btn { display: block; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 600; margin-bottom: 10px; font-size: 13px; }
         .btn-amazon { background: #232f3e; color: white !important; }
         .btn-ali { background: white; color: #ff6a00 !important; border: 1.5px solid #ff6a00; }
+        footer { padding: 60px 20px; text-align: center; color: #bdc3c7; font-size: 11px; letter-spacing: 2px; }
     </style>
 </head>
 <body>
-    <header><h1>Momo's Beauty Room</h1></header>
-    <div class="container">
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=500">
-            <div class="card-content">
-                <h3>Valentine's Special</h3>
-                <a href="https://amzn.to/3ZRkXS6" class="btn btn-amazon">Shop on Amazon</a>
-                <a href="https://www.alibaba.com" class="btn btn-ali">Wholesale</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=500">
-            <div class="card-content">
-                <h3>Skincare Fridge</h3>
-                <a href="https://amzn.to/49WkAvB" class="btn btn-amazon">Shop on Amazon</a>
-                <a href="https://www.alibaba.com" class="btn btn-ali">Wholesale</a>
-            </div>
+
+<header><div class="logo">Momo's Beauty</div></header>
+
+<div class="search-section">
+    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="SEARCH FOR #NO. OR PRODUCT...">
+</div>
+
+<div class="container" id="productGrid">
+    <div class="card" data-title="001 Valentine Gift">
+        <div class="badge">#001</div>
+        <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600">
+        <div class="card-content">
+            <h3>VALENTINE'S SPECIAL</h3>
+            <a href="https://amzn.to/3ZRkXS6" class="btn btn-amazon">SHOP ON AMAZON</a>
+            <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
         </div>
     </div>
+    <div class="card" data-title="003 Fridge">
+        <div class="badge">#003</div>
+        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=600">
+        <div class="card-content">
+            <h3>SKINCARE FRIDGE</h3>
+            <a href="https://amzn.to/49WkAvB" class="btn btn-amazon">SHOP ON AMAZON</a>
+            <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
+        </div>
+    </div>
+    <div class="card" data-title="004 LED Mirror">
+        <div class="badge">#004</div>
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=600">
+        <div class="card-content">
+            <h3>LED MAKEUP MIRROR</h3>
+            <a href="https://amzn.to/3ZOLG1z" class="btn btn-amazon">SHOP ON AMAZON</a>
+            <a href="https://www.alibaba.com" class="btn btn-ali">WHOLESALE</a>
+        </div>
+    </div>
+</div>
+
+<footer>EST. 2026 | MOMO'S BEAUTY ROOM</footer>
+
+<script>
+function filterProducts() {
+    let input = document.getElementById('searchInput').value.toUpperCase();
+    let cards = document.getElementsByClassName('card');
+    for (let i = 0; i < cards.length; i++) {
+        let title = cards[i].getAttribute('data-title').toUpperCase();
+        cards[i].style.display = title.indexOf(input) > -1 ? "" : "none";
+    }
+}
+</script>
 </body>
 </html>
