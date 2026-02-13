@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,13 +45,14 @@
 
         /* Card Design */
         .card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #fff0f3; display: flex; flex-direction: column; position: relative; }
+        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
         
         /* Badge Style */
         .badge { position: absolute; top: 12px; left: 12px; color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 900; z-index: 10; font-family: monospace; }
         .badge-amz { background: #232f3e; }
         .badge-ali { background: var(--ali-orange); }
         
-        .card-img-wrapper { width: 100%; height: 280px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; }
+        .card-img-wrapper { width: 100%; height: 280px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; text-decoration: none; }
         .card img { max-width: 90%; max-height: 90%; object-fit: contain; }
         
         .card-content { padding: 15px; text-align: center; flex-grow: 1; }
@@ -66,7 +66,7 @@
 
         /* Floating Consultant */
         #momo-container { position: fixed; bottom: 25px; right: 20px; width: 65px; z-index: 9999; cursor: pointer; }
-        #momo-img { width: 100%; border-radius: 50%; border: 2px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+        #momo-img { width: 100%; border-radius: 50%; border: 2px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #ffdfbf; }
         .bubble { position: absolute; bottom: 75px; right: 0; background: white; padding: 12px; border-radius: 15px; width: 170px; font-size: 11px; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; color: var(--accent); font-weight: bold; }
 
         footer { padding: 80px 20px; text-align: center; color: #bdc3c7; font-size: 10px; letter-spacing: 3px; }
@@ -89,17 +89,17 @@
 </div>
 
 <div id="momo-container" onclick="momoSpeak()">
-    <div class="bubble" id="momoBubble">Search '01' to find both versions! 💖</div>
+    <div class="bubble" id="momoBubble">Click images to shop directly! 💖</div>
     <img id="momo-img" src="https://api.dicebear.com/7.x/lorelei/svg?seed=Sunny">
 </div>
 
 <footer>EST. 2026 | MOMO'S BEAUTY ROOM</footer>
 
 <script>
-// 阿里链接统一使用你提供的链接
 const aliLink = "https://s.click.aliexpress.com/e/_c3imNgXV";
+// 你的 S01 专用图片
+const s01Img = "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true";
 
-// 数据配置：只需填写数字部分 ID
 const products = [
     { id: "01", title: "VALENTINE'S SPECIAL GIFT", amz: "https://amzn.to/3ZRkXS6", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800" },
     { id: "02", title: "ABIB QUICK SUNSTICK : PROTECTION BAR", amz: "https://www.amazon.com/Abib-Smoothing-Non-Sticky-Protection-Long-lasting/dp/B0DSMTDVCH", img: "https://github.com/momos-beautyroom-lang/momos-beautyroom-lang.github.io/blob/main/002.png?raw=true" },
@@ -110,35 +110,38 @@ const products = [
     { id: "07", title: "ANTI-AGING REPAIR CREAM", amz: "https://amzn.to/4qZWmWX", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/07.png" }
 ];
 
-function renderGrids(items) {
+function renderGrids() {
     const amzGrid = document.getElementById('amazonGrid');
     const aliGrid = document.getElementById('aliGrid');
 
-    // 渲染亚马逊 A 系列
-    amzGrid.innerHTML = items.map(p => `
+    // 渲染 A 系列 (Amazon)
+    amzGrid.innerHTML = products.map(p => `
         <div class="card" data-search="A${p.id} ${p.id} ${p.title}">
             <div class="badge badge-amz">A${p.id}</div>
             <a href="${p.amz}" target="_blank" class="card-img-wrapper">
-                <img src="${p.img}" loading="lazy">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Beauty+Room'">
             </a>
             <div class="card-content">
-                <h3>${p.title}</h3>
+                <a href="${p.amz}" target="_blank" style="text-decoration:none"><h3>${p.title}</h3></a>
                 <a href="${p.amz}" class="btn btn-amazon" target="_blank">SHOP ON AMAZON</a>
             </div>
         </div>
     `).join('');
 
-    // 渲染阿里 S 系列
-    aliGrid.innerHTML = items.map(p => `
-        <div class="card" data-search="S${p.id} ${p.id} ${p.title}">
-            <div class="badge badge-ali">S${p.id}</div>
-            <div class="card-img-wrapper"><img src="${p.img}" loading="lazy"></div>
+    // 渲染 S 系列 (使用 S01 图片地址并点击跳转 Ali)
+    const s01 = products[0];
+    aliGrid.innerHTML = `
+        <div class="card" data-search="S01 01 VALENTINE">
+            <div class="badge badge-ali">S01</div>
+            <a href="${aliLink}" target="_blank" class="card-img-wrapper">
+                <img src="${s01Img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=S01+Image'">
+            </a>
             <div class="card-content">
-                <h3>${p.title} (Twin)</h3>
+                <a href="${aliLink}" target="_blank" style="text-decoration:none"><h3>${s01.title} (Twin)</h3></a>
                 <a href="${aliLink}" class="btn btn-ali" target="_blank">GET FACTORY PRICE</a>
             </div>
         </div>
-    `).join('');
+    `;
 }
 
 function filterProducts() {
@@ -156,7 +159,7 @@ function momoSpeak() {
     setTimeout(() => { bubble.style.display = 'none'; }, 5000);
 }
 
-window.onload = () => renderGrids(products);
+window.onload = renderGrids;
 </script>
 </body>
 </html>
