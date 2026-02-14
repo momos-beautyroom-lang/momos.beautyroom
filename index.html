@@ -3,73 +3,175 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Momo's Beauty Room | Luxury Selection</title>
+    <title>Momo's Beauty Room | Luxury Curation</title>
     <style>
         :root { 
             --bg: #ffffff; 
             --accent: #ff85a2; 
-            --dark: #111111; 
+            --dark: #000000; 
             --amz-blue: #232f3e;
             --ali-orange: #ff4747;
-            --glass-shadow: 0 20px 40px rgba(0,0,0,0.06);
+            --glass: rgba(255, 255, 255, 0.8);
+            --shadow: 0 15px 45px rgba(0,0,0,0.05);
+            --hover-shadow: 0 25px 60px rgba(255, 133, 162, 0.12);
         }
         
-        body { font-family: 'Inter', -apple-system, system-ui, sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); -webkit-tap-highlight-color: transparent; }
+        body { 
+            font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+            margin: 0; 
+            background-color: var(--bg); 
+            color: var(--dark); 
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
         
-        header { background: white; padding: 25px 0; text-align: center; border: none; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 20px; font-weight: 800; letter-spacing: 6px; text-transform: uppercase; color: var(--dark); }
+        /* Premium Navigation */
+        header { 
+            background: var(--glass); 
+            backdrop-filter: blur(10px);
+            padding: 30px 0; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+        }
+        .logo { 
+            font-size: 22px; 
+            font-weight: 900; 
+            letter-spacing: 8px; 
+            text-transform: uppercase; 
+            color: var(--dark);
+        }
         
-        .search-section { padding: 30px 20px; text-align: center; background: #fff; }
-        .guide-text { font-size: 11px; color: #aaa; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
+        /* Immersive Search Section */
+        .search-section { 
+            padding: 40px 20px; 
+            text-align: center; 
+            background: linear-gradient(180deg, #fff 0%, #fffafa 100%);
+        }
+        .guide-text { 
+            font-size: 11px; 
+            color: #999; 
+            margin-bottom: 20px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+        }
         #searchInput { 
-            padding: 18px 30px; width: 100%; max-width: 450px; 
-            border-radius: 100px; border: 1.5px solid #eee; outline: none; 
-            font-size: 16px; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            box-sizing: border-box; text-align: center; background: #fdfdfd;
+            padding: 20px 35px; width: 100%; max-width: 500px; 
+            border-radius: 100px; border: 1.5px solid #f0f0f0; outline: none; 
+            font-size: 16px; transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
+            box-sizing: border-box; text-align: center; 
+            background: #ffffff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
         }
-        #searchInput:focus { border-color: var(--accent); background: #fff; box-shadow: 0 10px 30px rgba(255,133,162,0.15); transform: translateY(-2px); }
+        #searchInput:focus { 
+            border-color: var(--accent); 
+            box-shadow: 0 15px 35px rgba(255,133,162,0.15); 
+            transform: translateY(-3px) scale(1.02); 
+        }
 
+        /* Airy Section Titles */
         .section-title { 
-            max-width: 1200px; margin: 50px auto 25px; padding: 0 20px;
-            font-size: 13px; font-weight: 900; letter-spacing: 2.5px;
-            display: flex; align-items: center; gap: 15px; text-transform: uppercase; color: #ccc;
+            max-width: 1200px; margin: 80px auto 40px; padding: 0 25px;
+            font-size: 14px; font-weight: 900; letter-spacing: 4px;
+            display: flex; align-items: center; gap: 20px; text-transform: uppercase;
+            color: #222;
         }
-        .section-title::after { content: ""; flex: 1; height: 1px; background: #f0f0f0; }
+        .section-title::after { content: ""; flex: 1; height: 1.5px; background: #f5f5f5; }
 
-        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; }
+        /* Immersive Grid */
+        .container { 
+            max-width: 1300px; margin: 0 auto; padding: 0 25px; 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
+            gap: 60px; 
+        }
         
         @media (max-width: 600px) {
-            .container { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 15px; }
-            .card-content h3 { font-size: 12px; height: 34px; margin-bottom: 12px !important; }
-            .btn { padding: 12px 2px !important; font-size: 10px !important; }
-            .card-img-wrapper { height: 200px !important; }
+            .container { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 0 15px; }
+            .card-content h3 { font-size: 11px; height: 32px; letter-spacing: 0.5px; }
+            .btn { padding: 14px 2px !important; font-size: 9px !important; border-radius: 10px !important; }
+            .card-img-wrapper { height: 240px !important; }
+            .section-title { margin: 50px auto 25px; font-size: 12px; }
         }
 
-        .card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.4s; border: none; display: flex; flex-direction: column; position: relative; box-shadow: var(--glass-shadow); }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
+        /* Floating Card Design */
+        .card { 
+            background: white; border-radius: 30px; overflow: hidden; 
+            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            border: none; display: flex; flex-direction: column; position: relative; 
+            box-shadow: var(--shadow);
+        }
+        .card:hover { 
+            transform: translateY(-15px); 
+            box-shadow: var(--hover-shadow); 
+        }
         
-        .badge { position: absolute; top: 15px; left: 15px; color: white; padding: 6px 12px; border-radius: 100px; font-size: 10px; font-weight: 800; z-index: 10; backdrop-filter: blur(4px); }
-        .badge-amz { background: rgba(35, 47, 62, 0.9); }
-        .badge-ali { background: rgba(255, 71, 71, 0.9); }
+        /* Refined Badges */
+        .badge { 
+            position: absolute; top: 20px; left: 20px; color: white; 
+            padding: 8px 16px; border-radius: 50px; font-size: 10px; 
+            font-weight: 900; z-index: 10; backdrop-filter: blur(8px);
+            letter-spacing: 1px;
+        }
+        .badge-amz { background: rgba(0, 0, 0, 0.7); }
+        .badge-ali { background: rgba(255, 71, 71, 0.8); }
         
-        .card-img-wrapper { width: 100%; height: 340px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; cursor: pointer; }
-        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
+        /* Immersive Image wrapper */
+        .card-img-wrapper { 
+            width: 100%; height: 420px; background: #fff; 
+            display: flex; align-items: center; justify-content: center; 
+            overflow: hidden; cursor: pointer;
+        }
+        .card img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); 
+        }
+        .card:hover img { transform: scale(1.12); }
         
-        .card-content { padding: 20px; text-align: center; }
-        .card-content h3 { margin: 0 0 15px 0; font-size: 14px; font-weight: 700; color: #111; height: 34px; overflow: hidden; line-height: 1.4; }
+        /* Breathing Card Content */
+        .card-content { padding: 25px; text-align: center; background: #fff; }
+        .card-content h3 { 
+            margin: 0 0 20px 0; font-size: 14px; font-weight: 800; 
+            color: #111; height: 34px; overflow: hidden; 
+            line-height: 1.4; letter-spacing: 1px;
+            text-transform: uppercase;
+        }
         
-        .btn { display: block; padding: 15px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 11px; transition: all 0.3s; text-transform: uppercase; cursor: pointer; border: none; width: 100%; box-sizing: border-box; margin-bottom: 8px; }
-        .btn-amazon { background: var(--amz-blue); color: white !important; }
-        .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 1.5px solid var(--ali-orange); }
+        /* High-Trust Buttons */
+        .btn { 
+            display: block; padding: 18px; border-radius: 15px; 
+            text-decoration: none; font-weight: 900; font-size: 11px; 
+            transition: all 0.4s; text-transform: uppercase; 
+            cursor: pointer; border: none; width: 100%; 
+            box-sizing: border-box; margin-bottom: 10px;
+            letter-spacing: 1.5px;
+        }
+        .btn-amazon { background: var(--dark); color: white !important; }
+        .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 2px solid var(--ali-orange); }
+        .btn:hover { letter-spacing: 2.5px; opacity: 0.9; }
 
-        #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 50px; padding: 16px; position: fixed; z-index: 2000; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 14px; font-weight: 600; }
-        #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
+        /* Trusted Footer Area */
+        .ali-zone { padding: 60px 0; background: #fffafa; margin-top: 80px; }
+        footer { 
+            padding: 100px 20px; text-align: center; color: #bbb; 
+            font-size: 10px; letter-spacing: 5px; font-weight: 800; 
+        }
+        .trust-icons { margin-bottom: 20px; opacity: 0.3; font-size: 20px; }
 
-        @keyframes fadein { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
-        @keyframes fadeout { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+        /* Smooth Toast */
+        #toast { 
+            visibility: hidden; min-width: 280px; background: #111; color: #fff; 
+            text-align: center; border-radius: 100px; padding: 20px; 
+            position: fixed; z-index: 2000; left: 50%; bottom: 40px; 
+            transform: translateX(-50%); font-size: 13px; font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            letter-spacing: 1px;
+        }
+        #toast.show { visibility: visible; animation: slideup 0.5s, slidedown 0.5s 2.5s; }
 
-        .ali-zone { padding: 40px 0; background: #fffafa; margin-top: 50px; }
-        footer { padding: 80px 20px; text-align: center; color: #ddd; font-size: 10px; letter-spacing: 4px; font-weight: 700; }
+        @keyframes slideup { from {bottom: 0; opacity: 0;} to {bottom: 40px; opacity: 1;} }
+        @keyframes slidedown { from {bottom: 40px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
 <body>
@@ -77,21 +179,25 @@
 <header><div class="logo">Momo's Beauty</div></header>
 
 <div class="search-section">
-    <div class="guide-text">Search A01 for Amazon | S01 for AliExpress</div>
-    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Enter Code (#)" autofocus>
+    <div class="guide-text">The World's Most Advanced Beauty Curation</div>
+    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="SEARCH CODE (#)" autofocus>
 </div>
 
-<div id="toast">Code Copied! Redirecting... ✨</div>
+<div id="toast">CODE COPIED! REDIRECTING... ✨</div>
 
 <div class="section-title">✨ Premium Selection</div>
 <div class="container" id="amazonGrid"></div>
 
 <div class="ali-zone">
-    <div class="section-title">📦 Factory Direct Twins</div>
+    <div class="section-title">📦 Factory Twins</div>
     <div class="container" id="aliGrid"></div>
 </div>
 
-<footer>EST. 2026 | MOMO'S BEAUTY ROOM</footer>
+<footer>
+    <div class="trust-icons">🔒 💳 🛡️</div>
+    VERIFIED SECURE CHECKOUT<br><br>
+    EST. 2026 | MOMO'S BEAUTY ROOM
+</footer>
 
 <script>
 // --- 产品列表管理区 ---
@@ -117,12 +223,12 @@ function renderGrids() {
         <div class="card" data-code="A${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
             <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
-                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Beauty+Room'">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Premium+Beauty'">
             </div>
             <div class="card-content">
                 <h3>${p.title}</h3>
                 <button class="btn btn-amazon" onclick="handleShop('${p.link}', '${p.coupon}')">
-                    ${p.coupon ? 'Copy Code & Shop' : 'Shop on Amazon'}
+                    ${p.coupon ? 'COPY CODE & SHOP' : 'SHOP ON AMAZON'}
                 </button>
             </div>
         </div>
@@ -132,12 +238,12 @@ function renderGrids() {
         <div class="card" data-code="S${p.id}">
             <div class="badge badge-ali">S${p.id}</div>
             <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
-                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=S01+Deals'">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Factory+Deal'">
             </div>
             <div class="card-content">
                 <h3>${p.title}</h3>
                 <button class="btn btn-ali" onclick="handleShop('${p.link}', '${p.coupon}')">
-                    ${p.coupon ? 'Copy Code & Save' : 'Get Factory Price'}
+                    ${p.coupon ? 'COPY CODE & SAVE' : 'GET FACTORY PRICE'}
                 </button>
             </div>
         </div>
@@ -148,12 +254,12 @@ function handleShop(url, coupon) {
     if (coupon) {
         navigator.clipboard.writeText(coupon).then(() => {
             const toast = document.getElementById("toast");
-            toast.innerText = `Code "${coupon}" Copied! ✨`;
+            toast.innerText = `CODE "${coupon}" COPIED! ✨`;
             toast.className = "show";
             setTimeout(() => { 
                 toast.className = toast.className.replace("show", ""); 
                 window.open(url, '_blank'); 
-            }, 1200);
+            }, 1000); // 缩短等待感，提升沉浸体验
         });
     } else {
         window.open(url, '_blank');
