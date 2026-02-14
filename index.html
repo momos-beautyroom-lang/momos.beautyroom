@@ -52,7 +52,6 @@
         .badge-amz { background: rgba(35, 47, 62, 0.9); }
         .badge-ali { background: rgba(255, 71, 71, 0.9); }
         
-        /* 图片设为可点击指针 */
         .card-img-wrapper { width: 100%; height: 340px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; cursor: pointer; }
         .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
         
@@ -95,14 +94,15 @@
 <footer>EST. 2026 | MOMO'S BEAUTY ROOM</footer>
 
 <script>
+// --- 产品列表管理区 ---
 const amzProducts = [
     { id: "01", title: "PRO LED FACIAL THERAPY DEVICE", link: "https://amzn.to/4rhDTWd", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/01.png?raw=true", coupon: "" },
     { id: "02", title: "ABIB QUICK SUNSTICK : PROTECTION BAR", link: "https://www.amazon.com/Abib-Smoothing-Non-Sticky-Protection-Long-lasting/dp/B0DSMTDVCH", img: "https://github.com/momos-beautyroom-lang/momos-beautyroom-lang.github.io/blob/main/002.png?raw=true", coupon: "MOMO20" },
-    { id: "03", title: "LUXURY NAIL ART ESSENTIALS", link: "https://amzn.to/49WkAvB", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/02.png", coupon: "" },
-    { id: "04", title: "MICRO-NEEDLE ACNE PATCHES", link: "https://amzn.to/3ZOLG1z", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/04.png", coupon: "" },
-    { id: "05", title: "DEEP HYDRATING GLOW MASK", link: "https://amzn.to/4a79H8P", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/05.png", coupon: "" },
-    { id: "06", title: "BIO-ACTIVE SKIN REPAIR SET", link: "https://amzn.to/3LEifvV", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/06.png", coupon: "" },
-    { id: "07", title: "ADVANCED NIGHT REPAIR CREAM", link: "https://amzn.to/4qZWmWX", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/07.png", coupon: "" }
+    { id: "03", title: "LUXURY NAIL ART ESSENTIALS", link: "https://amzn.to/49WkAvB", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/02.png", coupon: "NAILS8" },
+    { id: "04", title: "MICRO-NEEDLE ACNE PATCHES", link: "https://amzn.to/3ZOLG1z", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/04.png", coupon: "ACNE10" },
+    { id: "05", title: "DEEP HYDRATING GLOW MASK", link: "https://amzn.to/4a79H8P", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/05.png", coupon: "GLOW15" },
+    { id: "06", title: "BIO-ACTIVE SKIN REPAIR SET", link: "https://amzn.to/3LEifvV", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/06.png", coupon: "BIOSET" },
+    { id: "07", title: "ADVANCED NIGHT REPAIR CREAM", link: "https://amzn.to/4qZWmWX", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/07.png", coupon: "NIGHT5" }
 ];
 
 const aliProducts = [
