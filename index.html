@@ -53,16 +53,15 @@
         .badge-ali { background: rgba(255, 71, 71, 0.9); }
         
         .card-img-wrapper { width: 100%; height: 340px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; }
-        .card img { width: 100%; height: 100%; object-fit: cover; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
         
         .card-content { padding: 20px; text-align: center; }
-        .card-content h3 { margin: 0 0 15px 0; font-size: 14px; font-weight: 700; color: #111; height: 34px; overflow: hidden; }
+        .card-content h3 { margin: 0 0 15px 0; font-size: 14px; font-weight: 700; color: #111; height: 34px; overflow: hidden; line-height: 1.4; }
         
         .btn { display: block; padding: 15px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 11px; transition: all 0.3s; text-transform: uppercase; cursor: pointer; border: none; width: 100%; box-sizing: border-box; margin-bottom: 8px; }
         .btn-amazon { background: var(--amz-blue); color: white !important; }
         .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 1.5px solid var(--ali-orange); }
 
-        /* Toast Popup */
         #toast { visibility: hidden; min-width: 250px; background-color: #333; color: #fff; text-align: center; border-radius: 50px; padding: 16px; position: fixed; z-index: 2000; left: 50%; bottom: 30px; transform: translateX(-50%); font-size: 14px; font-weight: 600; }
         #toast.show { visibility: visible; animation: fadein 0.5s, fadeout 0.5s 2.5s; }
 
@@ -95,9 +94,8 @@
 <footer>EST. 2026 | MOMO'S BEAUTY ROOM</footer>
 
 <script>
-// --- 产品列表：增加 'coupon' 字段 ---
 const amzProducts = [
-    { id: "01", title: "PRO LED FACIAL THERAPY DEVICE", link: "https://amzn.to/3ZRkXS6", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800", coupon: "" },
+    { id: "01", title: "PRO LED FACIAL THERAPY DEVICE", link: "https://amzn.to/4rhDTWd", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/01.png?raw=true", coupon: "" },
     { id: "02", title: "ABIB QUICK SUNSTICK : PROTECTION BAR", link: "https://www.amazon.com/Abib-Smoothing-Non-Sticky-Protection-Long-lasting/dp/B0DSMTDVCH", img: "https://github.com/momos-beautyroom-lang/momos-beautyroom-lang.github.io/blob/main/002.png?raw=true", coupon: "MOMO20" },
     { id: "03", title: "LUXURY NAIL ART ESSENTIALS", link: "https://amzn.to/49WkAvB", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/02.png", coupon: "" },
     { id: "04", title: "MICRO-NEEDLE ACNE PATCHES", link: "https://amzn.to/3ZOLG1z", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/04.png", coupon: "" },
@@ -107,7 +105,7 @@ const amzProducts = [
 ];
 
 const aliProducts = [
-    { id: "01", title: "FACTORY VERSION LED MASK", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true", coupon: "ALISAVE5" }
+    { id: "01", title: "抗老精华霜 (FACTORY VERSION)", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true", coupon: "ALISAVE5" }
 ];
 
 function renderGrids() {
@@ -117,7 +115,7 @@ function renderGrids() {
     amzGrid.innerHTML = amzProducts.map(p => `
         <div class="card" data-code="A${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
-            <div class="card-img-wrapper"><img src="${p.img}" loading="lazy"></div>
+            <div class="card-img-wrapper"><img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Beauty+Room'"></div>
             <div class="card-content">
                 <h3>${p.title}</h3>
                 <button class="btn btn-amazon" onclick="handleShop('${p.link}', '${p.coupon}')">
@@ -130,7 +128,7 @@ function renderGrids() {
     aliGrid.innerHTML = aliProducts.map(p => `
         <div class="card" data-code="S${p.id}">
             <div class="badge badge-ali">S${p.id}</div>
-            <div class="card-img-wrapper"><img src="${p.img}" loading="lazy"></div>
+            <div class="card-img-wrapper"><img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=S01+Deals'"></div>
             <div class="card-content">
                 <h3>${p.title}</h3>
                 <button class="btn btn-ali" onclick="handleShop('${p.link}', '${p.coupon}')">
@@ -143,7 +141,6 @@ function renderGrids() {
 
 function handleShop(url, coupon) {
     if (coupon) {
-        // 复制折扣码到剪贴板
         navigator.clipboard.writeText(coupon).then(() => {
             const toast = document.getElementById("toast");
             toast.innerText = `Code "${coupon}" Copied! ✨`;
@@ -160,7 +157,8 @@ function filterProducts() {
     let cards = document.getElementsByClassName('card');
     for (let card of cards) {
         let code = card.getAttribute('data-code');
-        card.style.display = (input === "" || code.includes(input)) ? "" : "none";
+        // 支持模糊搜索数字 (输入01 匹配 A01 和 S01)
+        card.style.display = (input === "" || code.includes(input) || (input.length > 0 && code.endsWith(input))) ? "" : "none";
     }
 }
 
