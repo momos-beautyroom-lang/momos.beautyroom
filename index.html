@@ -11,61 +11,76 @@
             --dark: #111111; 
             --amz-blue: #232f3e;
             --ali-orange: #ff4747;
+            --soft-pink: #fff0f3;
             --glass-shadow: 0 20px 40px rgba(0,0,0,0.06);
         }
         
         body { font-family: 'Inter', -apple-system, system-ui, sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); -webkit-tap-highlight-color: transparent; }
         
+        /* Header - Minimalist Luxury */
         header { background: white; padding: 25px 0; text-align: center; border: none; position: sticky; top: 0; z-index: 1000; }
         .logo { font-size: 20px; font-weight: 800; letter-spacing: 6px; text-transform: uppercase; color: var(--dark); }
         
+        /* Premium Search Section */
         .search-section { padding: 30px 20px; text-align: center; background: #fff; }
         .guide-text { font-size: 11px; color: #aaa; margin-bottom: 15px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; }
         #searchInput { 
             padding: 18px 30px; width: 100%; max-width: 450px; 
             border-radius: 100px; border: 1.5px solid #eee; outline: none; 
-            font-size: 16px; transition: all 0.4s; box-sizing: border-box; 
-            text-align: center; background: #fdfdfd;
+            font-size: 16px; transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            box-sizing: border-box; text-align: center; background: #fdfdfd;
         }
         #searchInput:focus { border-color: var(--accent); background: #fff; box-shadow: 0 10px 30px rgba(255,133,162,0.15); transform: translateY(-2px); }
 
+        /* Section Titles */
         .section-title { 
             max-width: 1200px; margin: 50px auto 25px; padding: 0 20px;
             font-size: 13px; font-weight: 900; letter-spacing: 2.5px;
-            display: flex; align-items: center; gap: 15px; text-transform: uppercase;
+            display: flex; align-items: center; gap: 15px; text-transform: uppercase; color: #ccc;
         }
         .section-title::after { content: ""; flex: 1; height: 1px; background: #f0f0f0; }
         .amz-header { color: var(--amz-blue); }
         .ali-header { color: var(--ali-orange); }
 
+        /* Product Grid */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 40px; }
         
         @media (max-width: 600px) {
             .container { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 15px; }
             .card-content h3 { font-size: 12px; height: 34px; margin-bottom: 12px !important; }
-            .btn { padding: 12px 2px !important; font-size: 10px !important; }
+            .btn { padding: 12px 2px !important; font-size: 10px !important; letter-spacing: 0.5px; }
             .card-img-wrapper { height: 200px !important; }
+            .logo { font-size: 16px; }
         }
 
+        /* Card Design */
         .card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.4s; border: none; display: flex; flex-direction: column; position: relative; box-shadow: var(--glass-shadow); }
         .card:hover { transform: translateY(-10px); box-shadow: 0 30px 60px rgba(0,0,0,0.12); }
         
-        .badge { position: absolute; top: 15px; left: 15px; color: white; padding: 6px 12px; border-radius: 100px; font-size: 10px; font-weight: 800; z-index: 10; }
-        .badge-amz { background: var(--amz-blue); }
-        .badge-ali { background: var(--ali-orange); }
+        /* Floating Badge */
+        .badge { position: absolute; top: 15px; left: 15px; color: white; padding: 6px 12px; border-radius: 100px; font-size: 10px; font-weight: 800; z-index: 10; backdrop-filter: blur(4px); }
+        .badge-amz { background: rgba(35, 47, 62, 0.9); }
+        .badge-ali { background: rgba(255, 71, 71, 0.9); }
         
         .card-img-wrapper { width: 100%; height: 340px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; }
-        .card img { width: 100%; height: 100%; object-fit: cover; }
+        .card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
+        .card:hover img { transform: scale(1.08); }
         
         .card-content { padding: 20px; text-align: center; }
-        .card-content h3 { margin: 0 0 15px 0; font-size: 14px; font-weight: 700; height: 34px; overflow: hidden; }
+        .card-content h3 { margin: 0 0 15px 0; font-size: 14px; font-weight: 700; color: #111; height: 34px; overflow: hidden; line-height: 1.4; }
         
-        .btn { display: block; padding: 15px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 11px; transition: 0.3s; text-transform: uppercase; }
+        /* Refined Buttons */
+        .btn { display: block; padding: 15px; border-radius: 14px; text-decoration: none; font-weight: 800; font-size: 11px; transition: all 0.3s; text-transform: uppercase; letter-spacing: 1px; }
         .btn-amazon { background: var(--amz-blue); color: white !important; margin-bottom: 8px; }
         .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 1.5px solid var(--ali-orange); }
+        .btn:hover { opacity: 0.9; transform: translateY(-1px); }
 
         .ali-zone { padding: 40px 0; background: #fffafa; margin-top: 50px; }
-        footer { padding: 80px 20px; text-align: center; color: #ddd; font-size: 10px; letter-spacing: 4px; }
+        footer { padding: 80px 20px; text-align: center; color: #ddd; font-size: 10px; letter-spacing: 4px; font-weight: 700; }
+
+        /* Floating Avatar */
+        #momo-container { position: fixed; bottom: 30px; right: 25px; width: 65px; z-index: 999; cursor: pointer; transition: 0.3s; }
+        #momo-img { width: 100%; border-radius: 50%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #fff; border: 3px solid white; }
     </style>
 </head>
 <body>
@@ -73,52 +88,69 @@
 <header><div class="logo">Momo's Beauty</div></header>
 
 <div class="search-section">
-    <div class="guide-text">Search A for Amazon | S for AliExpress</div>
-    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Enter Code (e.g. A01 or S01)">
+    <div class="guide-text">Search A + Code for Amazon | S + Code for AliExpress</div>
+    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="Enter Code (e.g. A01 or S01)" autofocus>
 </div>
 
-<div class="section-title amz-header">✨ Amazon Top Picks (Code A)</div>
+<div class="section-title amz-header">✨ Amazon Top Picks</div>
 <div class="container" id="amazonGrid"></div>
 
 <div class="ali-zone">
-    <div class="section-title ali-header">📦 Factory Twins (Code S)</div>
+    <div class="section-title ali-header">📦 Factory Direct Twins</div>
     <div class="container" id="aliGrid"></div>
+</div>
+
+<div id="momo-container">
+    <img id="momo-img" src="https://api.dicebear.com/7.x/lorelei/svg?seed=Sunny">
 </div>
 
 <footer>EST. 2026 | MOMO'S BEAUTY ROOM</footer>
 
 <script>
-const products = [
-    { id: "01", title: "PRO LED FACIAL THERAPY DEVICE", amz: "https://amzn.to/3ZRkXS6", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800" },
-    { id: "02", title: "ABIB QUICK SUNSTICK : PROTECTION BAR", amz: "https://www.amazon.com/Abib-Smoothing-Non-Sticky-Protection-Long-lasting/dp/B0DSMTDVCH", img: "https://github.com/momos-beautyroom-lang/momos-beautyroom-lang.github.io/blob/main/002.png?raw=true" }
+// --- 亚马逊产品 (保持你之前的所有数据) ---
+const amzProducts = [
+    { id: "01", title: "PRO LED FACIAL THERAPY DEVICE", link: "https://amzn.to/3ZRkXS6", img: "https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800" },
+    { id: "02", title: "ABIB QUICK SUNSTICK : PROTECTION BAR", link: "https://www.amazon.com/Abib-Smoothing-Non-Sticky-Protection-Long-lasting/dp/B0DSMTDVCH", img: "https://github.com/momos-beautyroom-lang/momos-beautyroom-lang.github.io/blob/main/002.png?raw=true" },
+    { id: "03", title: "LUXURY NAIL ART ESSENTIALS", link: "https://amzn.to/49WkAvB", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/02.png" },
+    { id: "04", title: "MICRO-NEEDLE ACNE PATCHES", link: "https://amzn.to/3ZOLG1z", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/04.png" },
+    { id: "05", title: "DEEP HYDRATING GLOW MASK", link: "https://amzn.to/4a79H8P", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/05.png" },
+    { id: "06", title: "BIO-ACTIVE SKIN REPAIR SET", link: "https://amzn.to/3LEifvV", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/06.png" },
+    { id: "07", title: "ADVANCED NIGHT REPAIR CREAM", link: "https://amzn.to/4qZWmWX", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/07.png" }
 ];
 
+// --- 速卖通产品 (你可以在这里增加更多 S 开头的产品) ---
 const aliProducts = [
-    { id: "01", title: "FACTORY VERSION LED MASK", ali: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true" }
+    { id: "01", title: "FACTORY VERSION LED MASK", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true" }
 ];
 
 function renderGrids() {
     const amzGrid = document.getElementById('amazonGrid');
     const aliGrid = document.getElementById('aliGrid');
 
-    amzGrid.innerHTML = products.map(p => `
+    // 渲染亚马逊部分
+    amzGrid.innerHTML = amzProducts.map(p => `
         <div class="card" data-code="A${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
-            <a href="${p.amz}" target="_blank" class="card-img-wrapper"><img src="${p.img}"></a>
+            <a href="${p.link}" target="_blank" class="card-img-wrapper">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Beauty+Room'">
+            </a>
             <div class="card-content">
                 <h3>${p.title}</h3>
-                <a href="${p.amz}" class="btn btn-amazon" target="_blank">Shop on Amazon</a>
+                <a href="${p.link}" class="btn btn-amazon" target="_blank">View on Amazon</a>
             </div>
         </div>
     `).join('');
 
+    // 渲染速卖通部分
     aliGrid.innerHTML = aliProducts.map(p => `
         <div class="card" data-code="S${p.id}">
             <div class="badge badge-ali">S${p.id}</div>
-            <a href="${p.ali}" target="_blank" class="card-img-wrapper"><img src="${p.img}"></a>
+            <a href="${p.link}" target="_blank" class="card-img-wrapper">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Factory+Deal'">
+            </a>
             <div class="card-content">
                 <h3>${p.title}</h3>
-                <a href="${p.ali}" class="btn btn-ali" target="_blank">Get Factory Price</a>
+                <a href="${p.link}" class="btn btn-ali" target="_blank">Get Factory Price</a>
             </div>
         </div>
     `).join('');
@@ -127,10 +159,15 @@ function renderGrids() {
 function filterProducts() {
     let input = document.getElementById('searchInput').value.toUpperCase();
     let cards = document.getElementsByClassName('card');
+    
     for (let card of cards) {
         let code = card.getAttribute('data-code');
-        // 核心修改：如果输入包含 A/S 则精准匹配，否则只要包含数字就显示
-        card.style.display = code.includes(input) ? "" : "none";
+        // 核心逻辑：输入包含 A01、S01 或者单纯的 01 都会显示
+        if (input === "" || code.includes(input)) {
+            card.style.display = "";
+        } else {
+            card.style.display = "none";
+        }
     }
 }
 
