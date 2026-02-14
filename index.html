@@ -3,73 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Momo's Beauty Room | Comparison Room</title>
+    <title>Momo's Beauty Room | Search & Shop</title>
     <style>
         :root { 
-            --bg: #fffbfb; 
+            --bg: #ffffff; 
             --accent: #ff85a2; 
-            --dark: #2d3436; 
-            --shadow: 0 10px 30px rgba(255, 133, 162, 0.1); 
-            --ali-orange: #ff6a00;
+            --dark: #1a1a1a; 
+            --amz-blue: #232f3e;
+            --ali-orange: #ff4747;
+            --gray: #f8f9fa;
         }
         
-        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); -webkit-tap-highlight-color: transparent; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; margin: 0; background-color: var(--bg); color: var(--dark); -webkit-tap-highlight-color: transparent; }
         
-        /* Navigation */
-        header { background: white; padding: 20px 0; text-align: center; border-bottom: 1px solid #ffeef2; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 22px; font-weight: 800; color: var(--dark); letter-spacing: 5px; text-transform: uppercase; }
+        /* Header */
+        header { background: white; padding: 15px 0; text-align: center; border-bottom: 1px solid #f0f0f0; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 18px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; }
         
-        /* Search Section */
-        .search-section { padding: 25px 15px; background: white; text-align: center; }
-        #searchInput { padding: 12px 25px; width: 90%; max-width: 500px; border-radius: 50px; border: 2px solid var(--accent); outline: none; font-size: 16px; transition: 0.3s; box-sizing: border-box; text-align: center; }
+        /* Guide & Search Section */
+        .search-section { padding: 20px 15px; text-align: center; background: #fff; }
+        .guide-text { font-size: 12px; color: #888; margin-bottom: 10px; font-weight: 500; text-transform: uppercase; letter-spacing: 1px; }
+        #searchInput { 
+            padding: 15px 25px; width: 100%; max-width: 400px; 
+            border-radius: 12px; border: 2px solid #eee; outline: none; 
+            font-size: 16px; transition: 0.3s; box-sizing: border-box; 
+            text-align: center; background: var(--gray);
+        }
+        #searchInput:focus { border-color: var(--accent); background: #fff; box-shadow: 0 5px 15px rgba(255,133,162,0.1); }
 
-        /* Section Title Style */
+        /* Titles */
         .section-title { 
-            max-width: 1200px; margin: 40px auto 20px; padding: 0 15px;
-            font-size: 16px; font-weight: 900; letter-spacing: 2px;
-            display: flex; align-items: center; gap: 10px;
+            max-width: 1200px; margin: 30px auto 15px; padding: 0 15px;
+            font-size: 14px; font-weight: 800; letter-spacing: 1px;
+            display: flex; align-items: center; gap: 10px; text-transform: uppercase;
         }
-        .section-title::after { content: ""; flex: 1; height: 1px; background: #ffeef2; }
-        .amz-header { color: #232f3e; }
+        .section-title::after { content: ""; flex: 1; height: 1px; background: #eee; }
+        .amz-header { color: var(--amz-blue); }
         .ali-header { color: var(--ali-orange); }
 
-        /* Product Grid */
+        /* Container & Cards */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
         
         @media (max-width: 600px) {
-            .container { grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 0 12px; }
-            .card-content h3 { font-size: 11px; height: 32px; }
-            .btn { padding: 10px 4px; font-size: 10px; border-radius: 10px; }
-            .card-img-wrapper { height: 180px !important; }
+            .container { grid-template-columns: repeat(2, 1fr); gap: 10px; padding: 0 10px; }
+            .card-content h3 { font-size: 11px; height: 32px; margin-bottom: 8px !important; }
+            .btn { padding: 10px 2px !important; font-size: 10px !important; }
+            .card-img-wrapper { height: 160px !important; }
         }
 
-        /* Card Design */
-        .card { background: white; border-radius: 20px; overflow: hidden; transition: 0.4s; border: 1px solid #fff0f3; display: flex; flex-direction: column; position: relative; }
-        .card:hover { transform: translateY(-5px); box-shadow: var(--shadow); }
+        .card { background: white; border-radius: 15px; overflow: hidden; transition: 0.3s; border: 1px solid #f0f0f0; display: flex; flex-direction: column; position: relative; }
         
-        /* Badge Style */
-        .badge { position: absolute; top: 12px; left: 12px; color: white; padding: 4px 10px; border-radius: 6px; font-size: 11px; font-weight: 900; z-index: 10; font-family: monospace; }
-        .badge-amz { background: #232f3e; }
+        /* Badge */
+        .badge { position: absolute; top: 10px; left: 10px; color: white; padding: 4px 8px; border-radius: 4px; font-size: 10px; font-weight: 800; z-index: 10; }
+        .badge-amz { background: var(--amz-blue); }
         .badge-ali { background: var(--ali-orange); }
         
-        .card-img-wrapper { width: 100%; height: 280px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; cursor: pointer; text-decoration: none; }
-        .card img { max-width: 90%; max-height: 90%; object-fit: contain; }
+        .card-img-wrapper { width: 100%; height: 240px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; }
+        .card img { width: 100%; height: 100%; object-fit: cover; }
         
-        .card-content { padding: 15px; text-align: center; flex-grow: 1; }
-        .card-content h3 { margin: 0 0 12px 0; font-size: 13px; font-weight: 600; line-height: 1.2; height: 32px; overflow: hidden; color: #444; }
+        .card-content { padding: 12px; text-align: center; }
+        .card-content h3 { margin: 0 0 10px 0; font-size: 12px; font-weight: 600; color: #333; height: 32px; overflow: hidden; }
         
-        .btn { display: block; padding: 12px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 11px; transition: 0.3s; text-align: center; }
-        .btn-amazon { background: #232f3e; color: white !important; margin-bottom: 8px; }
-        .btn-ali { background: white; color: var(--ali-orange) !important; border: 2.0px solid var(--ali-orange); }
+        /* Buttons */
+        .btn { display: block; padding: 12px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 11px; transition: 0.2s; }
+        .btn-amazon { background: var(--amz-blue); color: white !important; margin-bottom: 6px; }
+        .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 1.5px solid var(--ali-orange); }
+        .btn:active { transform: scale(0.95); }
 
-        .ali-zone { background-color: #fff5f0; padding: 40px 0; border-top: 1px solid #ffe8db; margin-top: 50px; }
+        .ali-zone { padding: 20px 0; background: #fffafa; margin-top: 30px; }
 
-        /* Floating Consultant */
-        #momo-container { position: fixed; bottom: 25px; right: 20px; width: 65px; z-index: 9999; cursor: pointer; }
-        #momo-img { width: 100%; border-radius: 50%; border: 2px solid white; box-shadow: 0 8px 20px rgba(0,0,0,0.1); background: #ffdfbf; }
-        .bubble { position: absolute; bottom: 75px; right: 0; background: white; padding: 12px; border-radius: 15px; width: 170px; font-size: 11px; display: none; box-shadow: 0 10px 25px rgba(0,0,0,0.1); text-align: center; color: var(--accent); font-weight: bold; }
+        footer { padding: 60px 20px; text-align: center; color: #ccc; font-size: 9px; letter-spacing: 2px; }
 
-        footer { padding: 80px 20px; text-align: center; color: #bdc3c7; font-size: 10px; letter-spacing: 3px; }
+        /* Floating Avatar */
+        #momo-container { position: fixed; bottom: 20px; right: 20px; width: 60px; z-index: 999; cursor: pointer; }
+        #momo-img { width: 100%; border-radius: 50%; box-shadow: 0 5px 15px rgba(0,0,0,0.1); background: #ffebee; border: 2px solid #fff; }
     </style>
 </head>
 <body>
@@ -77,27 +84,27 @@
 <header><div class="logo">Momo's Beauty</div></header>
 
 <div class="search-section">
-    <input type="text" id="searchInput" onkeyup="filterProducts()" placeholder="SEARCH NUMBER (E.G. 01) 🔍">
+    <div class="guide-text">Step 1: Enter Code (#) Step 2: Shop Deal</div>
+    <input type="number" id="searchInput" oninput="filterProducts()" placeholder="Type Code (e.g. 01) 🔍" autofocus>
 </div>
 
-<div class="section-title amz-header">✨ TOP BRANDS (CODE: A)</div>
+<div class="section-title amz-header">✨ Amazon Top Picks (Code: A)</div>
 <div class="container" id="amazonGrid"></div>
 
 <div class="ali-zone">
-    <div class="section-title ali-header">📦 BUDGET TWINS (CODE: S)</div>
+    <div class="section-title ali-header">📦 AliExpress Deals (Code: S)</div>
     <div class="container" id="aliGrid"></div>
 </div>
 
-<div id="momo-container" onclick="momoSpeak()">
-    <div class="bubble" id="momoBubble">Click images to shop directly! 💖</div>
+<div id="momo-container">
     <img id="momo-img" src="https://api.dicebear.com/7.x/lorelei/svg?seed=Sunny">
 </div>
 
 <footer>EST. 2026 | MOMO'S BEAUTY ROOM</footer>
 
 <script>
+// 配置区
 const aliLink = "https://s.click.aliexpress.com/e/_c3imNgXV";
-// 你的 S01 专用图片
 const s01Img = "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true";
 
 const products = [
@@ -114,31 +121,28 @@ function renderGrids() {
     const amzGrid = document.getElementById('amazonGrid');
     const aliGrid = document.getElementById('aliGrid');
 
-    // 渲染 A 系列 (Amazon)
     amzGrid.innerHTML = products.map(p => `
-        <div class="card" data-search="A${p.id} ${p.id} ${p.title}">
+        <div class="card" data-search="A${p.id} ${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
             <a href="${p.amz}" target="_blank" class="card-img-wrapper">
                 <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Beauty+Room'">
             </a>
             <div class="card-content">
-                <a href="${p.amz}" target="_blank" style="text-decoration:none"><h3>${p.title}</h3></a>
-                <a href="${p.amz}" class="btn btn-amazon" target="_blank">SHOP ON AMAZON</a>
+                <h3>${p.title}</h3>
+                <a href="${p.amz}" class="btn btn-amazon" target="_blank">AMAZON DEAL</a>
             </div>
         </div>
     `).join('');
 
-    // 渲染 S 系列 (使用 S01 图片地址并点击跳转 Ali)
-    const s01 = products[0];
     aliGrid.innerHTML = `
-        <div class="card" data-search="S01 01 VALENTINE">
+        <div class="card" data-search="S01 01">
             <div class="badge badge-ali">S01</div>
             <a href="${aliLink}" target="_blank" class="card-img-wrapper">
-                <img src="${s01Img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=S01+Image'">
+                <img src="${s01Img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=S01+Deals'">
             </a>
             <div class="card-content">
-                <a href="${aliLink}" target="_blank" style="text-decoration:none"><h3>${s01.title} (Twin)</h3></a>
-                <a href="${aliLink}" class="btn btn-ali" target="_blank">GET FACTORY PRICE</a>
+                <h3>VALENTINE'S SPECIAL (TWIN)</h3>
+                <a href="${aliLink}" class="btn btn-ali" target="_blank">ALIEXPRESS PRICE</a>
             </div>
         </div>
     `;
@@ -151,12 +155,6 @@ function filterProducts() {
         let text = card.getAttribute('data-search').toUpperCase();
         card.style.display = text.indexOf(input) > -1 ? "" : "none";
     }
-}
-
-function momoSpeak() {
-    const bubble = document.getElementById('momoBubble');
-    bubble.style.display = 'block';
-    setTimeout(() => { bubble.style.display = 'none'; }, 5000);
 }
 
 window.onload = renderGrids;
