@@ -159,7 +159,7 @@
         #toast.show { visibility: visible; animation: slideup 0.5s, slidedown 0.5s 2.5s; }
 
         @keyframes slideup { from {bottom: 0; opacity: 0;} to {bottom: 40px; opacity: 1;} }
-        @keyframes fadeout { from {bottom: 40px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+        @keyframes slidedown { from {bottom: 40px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
 <body>
@@ -235,19 +235,26 @@ function renderGrids() {
     `).join('');
 }
 
+// 核心优化函数：解决移动端拦截弹窗问题
 function handleShop(url, coupon) {
     if (coupon) {
+        // 先尝试执行复制
         navigator.clipboard.writeText(coupon).then(() => {
             const toast = document.getElementById("toast");
             toast.innerText = `CODE "${coupon}" COPIED! ✨`;
             toast.className = "show";
-            setTimeout(() => { 
-                toast.className = toast.className.replace("show", ""); 
-                window.open(url, '_blank'); 
-            }, 1000);
+            // 立即跳转，不要使用 setTimeout 延迟，防止被浏览器拦截
+            window.location.href = url; 
+            
+            // 为了视觉效果，Toast 会在页面跳转后的后台逻辑里处理（或者在当前页保留）
+            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
+        }).catch(err => {
+            // 如果复制失败，依然强制跳转
+            window.location.href = url;
         });
     } else {
-        window.open(url, '_blank');
+        // 无折扣码直接跳转
+        window.location.href = url;
     }
 }
 
