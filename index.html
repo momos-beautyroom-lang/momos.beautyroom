@@ -52,7 +52,8 @@
         .badge-amz { background: rgba(35, 47, 62, 0.9); }
         .badge-ali { background: rgba(255, 71, 71, 0.9); }
         
-        .card-img-wrapper { width: 100%; height: 340px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; }
+        /* 图片设为可点击指针 */
+        .card-img-wrapper { width: 100%; height: 340px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; text-decoration: none; cursor: pointer; }
         .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.3s; }
         
         .card-content { padding: 20px; text-align: center; }
@@ -105,7 +106,7 @@ const amzProducts = [
 ];
 
 const aliProducts = [
-    { id: "01", title: "抗老精华霜 (FACTORY VERSION)", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true", coupon: "ALISAVE5" }
+    { id: "01", title: "抗敏积雪草精华液 (FACTORY VERSION)", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true", coupon: "ALISAVE5" }
 ];
 
 function renderGrids() {
@@ -115,7 +116,9 @@ function renderGrids() {
     amzGrid.innerHTML = amzProducts.map(p => `
         <div class="card" data-code="A${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
-            <div class="card-img-wrapper"><img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Beauty+Room'"></div>
+            <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=Beauty+Room'">
+            </div>
             <div class="card-content">
                 <h3>${p.title}</h3>
                 <button class="btn btn-amazon" onclick="handleShop('${p.link}', '${p.coupon}')">
@@ -128,7 +131,9 @@ function renderGrids() {
     aliGrid.innerHTML = aliProducts.map(p => `
         <div class="card" data-code="S${p.id}">
             <div class="badge badge-ali">S${p.id}</div>
-            <div class="card-img-wrapper"><img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=S01+Deals'"></div>
+            <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/400x500?text=S01+Deals'">
+            </div>
             <div class="card-content">
                 <h3>${p.title}</h3>
                 <button class="btn btn-ali" onclick="handleShop('${p.link}', '${p.coupon}')">
@@ -145,7 +150,10 @@ function handleShop(url, coupon) {
             const toast = document.getElementById("toast");
             toast.innerText = `Code "${coupon}" Copied! ✨`;
             toast.className = "show";
-            setTimeout(() => { toast.className = toast.className.replace("show", ""); window.open(url, '_blank'); }, 1500);
+            setTimeout(() => { 
+                toast.className = toast.className.replace("show", ""); 
+                window.open(url, '_blank'); 
+            }, 1200);
         });
     } else {
         window.open(url, '_blank');
@@ -157,7 +165,6 @@ function filterProducts() {
     let cards = document.getElementsByClassName('card');
     for (let card of cards) {
         let code = card.getAttribute('data-code');
-        // 支持模糊搜索数字 (输入01 匹配 A01 和 S01)
         card.style.display = (input === "" || code.includes(input) || (input.length > 0 && code.endsWith(input))) ? "" : "none";
     }
 }
