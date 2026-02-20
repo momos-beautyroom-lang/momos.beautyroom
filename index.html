@@ -195,7 +195,7 @@ const amzProducts = [
     { id: "05", title: "DEEP HYDRATING GLOW MASK", link: "https://amzn.to/4a79H8P", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/05.png", coupon: "GLOW15" },
     { id: "06", title: "BIO-ACTIVE SKIN REPAIR SET", link: "https://amzn.to/3LEifvV", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/06.png", coupon: "BIOSET" },
     { id: "07", title: "ADVANCED NIGHT REPAIR CREAM", link: "https://amzn.to/4qZWmWX", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/07.png", coupon: "NIGHT5" },
-    { id: "08", title: "PREMIUM BEAUTY ESSENTIAL A08", link: "https://amzn.to/40azvwi", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/08.png?raw=true", coupon: "" }
+    { id: "08", title: "INIA GLOW 4D WIRELESS RED LIGHT THERAPY MASK", link: "https://amzn.to/40azvwi", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/08.png?raw=true", coupon: "" }
 ];
 
 const aliProducts = [
@@ -252,7 +252,7 @@ async function handleShop(url, coupon) {
         }
     }
     
-    // 延迟 300ms 跳转，确保用户看到提示且不被浏览器拦截
+    // 延迟 400ms 跳转，确保用户看到提示且不被浏览器拦截
     setTimeout(() => {
         window.location.href = url;
     }, 400);
@@ -266,7 +266,7 @@ function filterProducts() {
     let cards = document.getElementsByClassName('card');
     for (let card of cards) {
         let code = card.getAttribute('data-code');
-        // 匹配逻辑：包含搜索词或代码末尾匹配
+        // 匹配逻辑：包含搜索词或代码直接匹配
         card.style.display = (input === "" || code.includes(input)) ? "" : "none";
     }
 }
