@@ -11,7 +11,7 @@
             --dark: #000000; 
             --amz-blue: #232f3e;
             --ali-orange: #ff4747;
-            --glass: rgba(255, 255, 255, 0.8);
+            --glass: rgba(255, 255, 255, 0.9);
             --shadow: 0 15px 45px rgba(0,0,0,0.05);
             --hover-shadow: 0 25px 60px rgba(255, 133, 162, 0.12);
         }
@@ -28,16 +28,17 @@
         header { 
             background: var(--glass); 
             backdrop-filter: blur(10px);
-            padding: 30px 0; 
+            padding: 25px 0; 
             text-align: center; 
             position: sticky; 
             top: 0; 
             z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
         .logo { 
-            font-size: 22px; 
+            font-size: 20px; 
             font-weight: 900; 
-            letter-spacing: 8px; 
+            letter-spacing: 6px; 
             text-transform: uppercase; 
             color: var(--dark);
         }
@@ -56,21 +57,21 @@
             letter-spacing: 3px; 
         }
         #searchInput { 
-            padding: 20px 35px; width: 100%; max-width: 500px; 
+            padding: 18px 30px; width: 100%; max-width: 500px; 
             border-radius: 100px; border: 1.5px solid #f0f0f0; outline: none; 
-            font-size: 16px; transition: all 0.5s cubic-bezier(0.2, 1, 0.3, 1); 
+            font-size: 16px; transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1); 
             box-sizing: border-box; text-align: center; 
             background: #ffffff;
             box-shadow: 0 5px 20px rgba(0,0,0,0.02);
         }
         #searchInput:focus { 
             border-color: var(--accent); 
-            box-shadow: 0 15px 35px rgba(255,133,162,0.15); 
-            transform: translateY(-3px) scale(1.02); 
+            box-shadow: 0 10px 30px rgba(255,133,162,0.15); 
+            transform: translateY(-2px); 
         }
 
         .section-title { 
-            max-width: 1200px; margin: 80px auto 40px; padding: 0 25px;
+            max-width: 1200px; margin: 60px auto 30px; padding: 0 25px;
             font-size: 14px; font-weight: 900; letter-spacing: 4px;
             display: flex; align-items: center; gap: 20px; text-transform: uppercase;
             color: #222;
@@ -79,32 +80,33 @@
 
         .container { 
             max-width: 1300px; margin: 0 auto; padding: 0 25px; 
-            display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); 
-            gap: 60px; 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 40px; 
         }
         
         @media (max-width: 600px) {
-            .container { grid-template-columns: repeat(2, 1fr); gap: 20px; padding: 0 15px; }
-            .card-content h3 { font-size: 11px; height: 32px; letter-spacing: 0.5px; cursor: pointer; }
-            .btn { padding: 14px 2px !important; font-size: 9px !important; border-radius: 10px !important; }
-            .card-img-wrapper { height: 240px !important; }
-            .section-title { margin: 50px auto 25px; font-size: 12px; }
+            .container { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 10px; }
+            .card-content h3 { font-size: 10px; height: 28px; letter-spacing: 0.5px; margin-bottom: 10px !important; }
+            .btn { padding: 12px 2px !important; font-size: 9px !important; border-radius: 8px !important; }
+            .card-img-wrapper { height: 220px !important; }
+            .section-title { margin: 40px auto 20px; font-size: 11px; }
+            .badge { top: 10px !important; left: 10px !important; padding: 5px 10px !important; font-size: 9px !important; }
         }
 
         .card { 
-            background: white; border-radius: 30px; overflow: hidden; 
-            transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1); 
-            border: none; display: flex; flex-direction: column; position: relative; 
+            background: white; border-radius: 20px; overflow: hidden; 
+            transition: all 0.5s ease; 
+            border: 1px solid rgba(0,0,0,0.03); display: flex; flex-direction: column; position: relative; 
             box-shadow: var(--shadow);
         }
         .card:hover { 
-            transform: translateY(-15px); 
+            transform: translateY(-10px); 
             box-shadow: var(--hover-shadow); 
         }
         
         .badge { 
-            position: absolute; top: 20px; left: 20px; color: white; 
-            padding: 8px 16px; border-radius: 50px; font-size: 10px; 
+            position: absolute; top: 15px; left: 15px; color: white; 
+            padding: 6px 14px; border-radius: 50px; font-size: 10px; 
             font-weight: 900; z-index: 10; backdrop-filter: blur(8px);
             letter-spacing: 1px;
         }
@@ -112,54 +114,52 @@
         .badge-ali { background: rgba(255, 71, 71, 0.8); }
         
         .card-img-wrapper { 
-            width: 100%; height: 420px; background: #fff; 
+            width: 100%; height: 380px; background: #f9f9f9; 
             display: flex; align-items: center; justify-content: center; 
             overflow: hidden; cursor: pointer;
         }
         .card img { 
             width: 100%; height: 100%; object-fit: cover; 
-            transition: transform 1.2s cubic-bezier(0.165, 0.84, 0.44, 1); 
+            transition: transform 0.8s ease; 
         }
-        .card:hover img { transform: scale(1.12); }
+        .card:hover img { transform: scale(1.08); }
         
-        .card-content { padding: 25px; text-align: center; background: #fff; }
+        .card-content { padding: 20px; text-align: center; background: #fff; }
         .card-content h3 { 
-            margin: 0 0 20px 0; font-size: 14px; font-weight: 800; 
-            color: #111; height: 34px; overflow: hidden; 
-            line-height: 1.4; letter-spacing: 1px;
-            text-transform: uppercase;
-            cursor: pointer;
+            margin: 0 0 15px 0; font-size: 13px; font-weight: 800; 
+            color: #111; height: 36px; overflow: hidden; 
+            line-height: 1.4; letter-spacing: 0.5px;
+            text-transform: uppercase; cursor: pointer;
         }
         
         .btn { 
-            display: block; padding: 18px; border-radius: 15px; 
-            text-decoration: none; font-weight: 900; font-size: 11px; 
-            transition: all 0.4s; text-transform: uppercase; 
+            display: block; padding: 15px; border-radius: 12px; 
+            text-decoration: none; font-weight: 900; font-size: 10px; 
+            transition: all 0.3s; text-transform: uppercase; 
             cursor: pointer; border: none; width: 100%; 
-            box-sizing: border-box; margin-bottom: 10px;
-            letter-spacing: 1.5px;
+            box-sizing: border-box; margin-bottom: 8px;
+            letter-spacing: 1px;
         }
         .btn-amazon { background: var(--dark); color: white !important; }
-        .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 2px solid var(--ali-orange); }
+        .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 1.5px solid var(--ali-orange); }
 
-        .ali-zone { padding: 60px 0; background: #fffafa; margin-top: 80px; }
+        .ali-zone { padding: 40px 0 80px; background: #fffafa; margin-top: 60px; }
         footer { 
-            padding: 100px 20px; text-align: center; color: #bbb; 
-            font-size: 10px; letter-spacing: 5px; font-weight: 800; 
+            padding: 60px 20px; text-align: center; color: #ccc; 
+            font-size: 10px; letter-spacing: 4px; font-weight: 800; 
         }
 
         #toast { 
-            visibility: hidden; min-width: 280px; background: #111; color: #fff; 
-            text-align: center; border-radius: 100px; padding: 20px; 
-            position: fixed; z-index: 2000; left: 50%; bottom: 40px; 
-            transform: translateX(-50%); font-size: 13px; font-weight: 800;
+            visibility: hidden; min-width: 250px; background: #111; color: #fff; 
+            text-align: center; border-radius: 100px; padding: 16px; 
+            position: fixed; z-index: 2000; left: 50%; bottom: 30px; 
+            transform: translateX(-50%); font-size: 12px; font-weight: 800;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            letter-spacing: 1px;
         }
-        #toast.show { visibility: visible; animation: slideup 0.5s, slidedown 0.5s 2.5s; }
+        #toast.show { visibility: visible; animation: slideup 0.4s, slidedown 0.4s 2.1s; }
 
-        @keyframes slideup { from {bottom: 0; opacity: 0;} to {bottom: 40px; opacity: 1;} }
-        @keyframes slidedown { from {bottom: 40px; opacity: 1;} to {bottom: 0; opacity: 0;} }
+        @keyframes slideup { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes slidedown { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
 <body>
@@ -168,7 +168,7 @@
 
 <div class="search-section">
     <div class="guide-text">The World's Most Advanced Beauty Curation</div>
-    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="SEARCH CODE (#)" autofocus>
+    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="SEARCH CODE (e.g. A01)" autofocus>
 </div>
 
 <div id="toast">CODE COPIED! REDIRECTING... ✨</div>
@@ -186,6 +186,7 @@
 </footer>
 
 <script>
+// 数据配置
 const amzProducts = [
     { id: "01", title: "PRO LED FACIAL THERAPY DEVICE", link: "https://amzn.to/4rhDTWd", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/01.png?raw=true", coupon: "" },
     { id: "02", title: "ABIB QUICK SUNSTICK : PROTECTION BAR", link: "https://www.amazon.com/Abib-Smoothing-Non-Sticky-Protection-Long-lasting/dp/B0DSMTDVCH", img: "https://github.com/momos-beautyroom-lang/momos-beautyroom-lang.github.io/blob/main/002.png?raw=true", coupon: "MOMO20" },
@@ -193,13 +194,15 @@ const amzProducts = [
     { id: "04", title: "MICRO-NEEDLE ACNE PATCHES", link: "https://amzn.to/3ZOLG1z", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/04.png", coupon: "ACNE10" },
     { id: "05", title: "DEEP HYDRATING GLOW MASK", link: "https://amzn.to/4a79H8P", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/05.png", coupon: "GLOW15" },
     { id: "06", title: "BIO-ACTIVE SKIN REPAIR SET", link: "https://amzn.to/3LEifvV", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/06.png", coupon: "BIOSET" },
-    { id: "07", title: "ADVANCED NIGHT REPAIR CREAM", link: "https://amzn.to/4qZWmWX", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/07.png", coupon: "NIGHT5" }
+    { id: "07", title: "ADVANCED NIGHT REPAIR CREAM", link: "https://amzn.to/4qZWmWX", img: "https://raw.githubusercontent.com/momos-beautyroom-lang/momos.beautyroom/main/07.png", coupon: "NIGHT5" },
+    { id: "08", title: "PREMIUM BEAUTY ESSENTIAL A08", link: "https://amzn.to/40azvwi", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/08.png?raw=true", coupon: "" }
 ];
 
 const aliProducts = [
-    { id: "01", title: "CICA CALMING AMPOULE (FACTORY VERSION)", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true", coupon: "ALISAVE5" }
+    { id: "01", title: "CICA CALMING AMPOULE (FACTORY)", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true", coupon: "ALISAVE5" }
 ];
 
+// 渲染函数
 function renderGrids() {
     const amzGrid = document.getElementById('amazonGrid');
     const aliGrid = document.getElementById('aliGrid');
@@ -208,7 +211,7 @@ function renderGrids() {
         <div class="card" data-code="A${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
             <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
-                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Premium+Beauty'">
+                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Product+A${p.id}'">
             </div>
             <div class="card-content">
                 <h3 onclick="handleShop('${p.link}', '${p.coupon}')">${p.title}</h3>
@@ -235,35 +238,36 @@ function renderGrids() {
     `).join('');
 }
 
-// 核心优化函数：解决移动端拦截弹窗问题
-function handleShop(url, coupon) {
-    if (coupon) {
-        // 先尝试执行复制
-        navigator.clipboard.writeText(coupon).then(() => {
-            const toast = document.getElementById("toast");
+// 核心跳转与复制函数
+async function handleShop(url, coupon) {
+    const toast = document.getElementById("toast");
+    
+    if (coupon && navigator.clipboard) {
+        try {
+            await navigator.clipboard.writeText(coupon);
             toast.innerText = `CODE "${coupon}" COPIED! ✨`;
             toast.className = "show";
-            // 立即跳转，不要使用 setTimeout 延迟，防止被浏览器拦截
-            window.location.href = url; 
-            
-            // 为了视觉效果，Toast 会在页面跳转后的后台逻辑里处理（或者在当前页保留）
-            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2500);
-        }).catch(err => {
-            // 如果复制失败，依然强制跳转
-            window.location.href = url;
-        });
-    } else {
-        // 无折扣码直接跳转
-        window.location.href = url;
+        } catch (err) {
+            console.error("Copy failed", err);
+        }
     }
+    
+    // 延迟 300ms 跳转，确保用户看到提示且不被浏览器拦截
+    setTimeout(() => {
+        window.location.href = url;
+    }, 400);
+    
+    setTimeout(() => { toast.className = ""; }, 2000);
 }
 
+// 搜索过滤
 function filterProducts() {
     let input = document.getElementById('searchInput').value.toUpperCase();
     let cards = document.getElementsByClassName('card');
     for (let card of cards) {
         let code = card.getAttribute('data-code');
-        card.style.display = (input === "" || code.includes(input) || (input.length > 0 && code.endsWith(input))) ? "" : "none";
+        // 匹配逻辑：包含搜索词或代码末尾匹配
+        card.style.display = (input === "" || code.includes(input)) ? "" : "none";
     }
 }
 
