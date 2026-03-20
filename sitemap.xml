@@ -1,79 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/</loc>
-    <lastmod>2026-03-17</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A01</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A02</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A03</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A04</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A05</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A06</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A07</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A08</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A09</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A10</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A11</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A12</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=A13</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://momos-beautyroom.pages.dev/?code=S01</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-</urlset>
+<url>
+  <loc>https://momos-beautyroom.pages.dev/?code=A14</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+  <title>V-line chin strap for face slimming, jawline shaping, overnight lift</title>
+  <amazon_link>https://amzn.to/4bUhJ79</amazon_link>
+  <image_link>https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/A14.png?raw=true</image_link>
+  <seo_keywords>V-line chin strap, face slimming, jawline shaping, overnight lift, Amazon beauty tool</seo_keywords>
+</url>
+
+<url>
+  <loc>https://momos-beautyroom.pages.dev/?code=A15</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+  <title>Jade roller and gua sha set for facial massage, lymphatic drainage, skin tightening</title>
+  <amazon_link>https://amzn.to/47MsHsX</amazon_link>
+  <image_link>https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/A15.png?raw=true</image_link>
+  <seo_keywords>Jade roller, gua sha set, facial massage, lymphatic drainage, skin tightening, Amazon skincare</seo_keywords>
+</url>
+
+<url>
+  <loc>https://momos-beautyroom.pages.dev/?code=A16</loc>
+  <changefreq>weekly</changefreq>
+  <priority>0.8</priority>
+  <title>Retinol night cream for anti-aging, skin repair, wrinkle reduction</title>
+  <amazon_link>https://amzn.to/4cUvpQA</amazon_link>
+  <image_link>https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/A16.png?raw=true</image_link>
+  <seo_keywords>Retinol night cream, anti-aging, skin repair, wrinkle reduction, Amazon beauty cream</seo_keywords>
+</url>
