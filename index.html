@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  
+
     <!-- ========== SEO 基础设置 ========== -->
     <title>Momo's Beauty Room - Amazon Beauty Deals & Product Search by Code | Viral Skincare & Makeup</title>
     <meta name="description" content="Find viral Amazon beauty products! Search by video code (A01-A99) to discover the best deals on skincare, makeup, LED masks, and personal care items. Today's deal: Viral Neck & Face LED Mask, EVFOFO Red Light Therapy, and more!">
     <meta name="keywords" content="Amazon beauty deals, beauty product codes, LED face mask, red light therapy, EVFOFO mask, viral skincare, makeup deals, Amazon affiliate, TikTok beauty, Instagram beauty deals">
     <meta name="author" content="Momo's Beauty Room">
-  
+
     <!-- Open Graph (社交媒体分享优化) -->
     <meta property="og:title" content="Momo's Beauty Room - Viral Beauty Deals">
     <meta property="og:description" content="Search by code to find viral beauty products from my TikTok & Instagram videos! LED masks, skincare tools, and more.">
@@ -17,27 +17,27 @@
     <meta property="og:url" content="https://momos-beautyroom.pages.dev/">
     <meta property="og:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
     <meta property="og:site_name" content="Momo's Beauty Room">
-  
+
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Momo's Beauty Room - Beauty Deals">
     <meta name="twitter:description" content="Find beauty deals by searching video codes! LED masks, skincare, and more.">
     <meta name="twitter:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
-  
+
     <!-- 移动端优化 -->
     <meta name="theme-color" content="#ff85a2">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  
+
     <!-- Canonical URL (防止重复内容) -->
     <link rel="canonical" href="https://momos-beautyroom.pages.dev/">
-  
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
-  
+
     <!-- Google Site Verification (从 Google Search Console 获取后替换) -->
     <!-- <meta name="google-site-verification" content="你的验证码" /> -->
-  
+
     <!-- Structured Data (帮助 Google 理解你的网站) -->
     <script type="application/ld+json">
     {
@@ -53,9 +53,163 @@
       }
     }
     </script>
-  
+
     <style>
-        /* 保持原有样式不变 */
+        :root { 
+            --bg: #ffffff; 
+            --accent: #ff85a2; 
+            --dark: #000000; 
+            --amz-blue: #232f3e;
+            --ali-orange: #ff4747;
+            --glass: rgba(255, 255, 255, 0.9);
+            --shadow: 0 15px 45px rgba(0,0,0,0.05);
+            --hover-shadow: 0 25px 60px rgba(255, 133, 162, 0.12);
+        }
+    
+        body { 
+            font-family: 'Inter', -apple-system, system-ui, sans-serif; 
+            margin: 0; 
+            background-color: var(--bg); 
+            color: var(--dark); 
+            -webkit-tap-highlight-color: transparent;
+            overflow-x: hidden;
+        }
+    
+        header { 
+            background: var(--glass); 
+            backdrop-filter: blur(10px);
+            padding: 25px 0; 
+            text-align: center; 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { 
+            font-size: 20px; 
+            font-weight: 900; 
+            letter-spacing: 6px; 
+            text-transform: uppercase; 
+            color: var(--dark);
+        }
+    
+        .search-section { 
+            padding: 40px 20px; 
+            text-align: center; 
+            background: linear-gradient(180deg, #fff 0%, #fffafa 100%);
+        }
+        .guide-text { 
+            font-size: 11px; 
+            color: #999; 
+            margin-bottom: 20px; 
+            font-weight: 700; 
+            text-transform: uppercase; 
+            letter-spacing: 3px; 
+        }
+        #searchInput { 
+            padding: 18px 30px; width: 100%; max-width: 500px; 
+            border-radius: 100px; border: 1.5px solid #f0f0f0; outline: none; 
+            font-size: 16px; transition: all 0.4s cubic-bezier(0.2, 1, 0.3, 1); 
+            box-sizing: border-box; text-align: center; 
+            background: #ffffff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.02);
+        }
+        #searchInput:focus { 
+            border-color: var(--accent); 
+            box-shadow: 0 10px 30px rgba(255,133,162,0.15); 
+            transform: translateY(-2px); 
+        }
+
+        .section-title { 
+            max-width: 1200px; margin: 60px auto 30px; padding: 0 25px;
+            font-size: 14px; font-weight: 900; letter-spacing: 4px;
+            display: flex; align-items: center; gap: 20px; text-transform: uppercase;
+            color: #222;
+        }
+        .section-title::after { content: ""; flex: 1; height: 1.5px; background: #f5f5f5; }
+
+        .container { 
+            max-width: 1300px; margin: 0 auto; padding: 0 25px; 
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+            gap: 40px; 
+        }
+    
+        @media (max-width: 600px) {
+            .container { grid-template-columns: repeat(2, 1fr); gap: 15px; padding: 0 10px; }
+            .card-content h3 { font-size: 10px; height: 28px; letter-spacing: 0.5px; margin-bottom: 10px !important; }
+            .btn { padding: 12px 2px !important; font-size: 9px !important; border-radius: 8px !important; }
+            .card-img-wrapper { height: 220px !important; }
+            .section-title { margin: 40px auto 20px; font-size: 11px; }
+            .badge { top: 10px !important; left: 10px !important; padding: 5px 10px !important; font-size: 9px !important; }
+        }
+
+        .card { 
+            background: white; border-radius: 20px; overflow: hidden; 
+            transition: all 0.5s ease; 
+            border: 1px solid rgba(0,0,0,0.03); display: flex; flex-direction: column; position: relative; 
+            box-shadow: var(--shadow);
+        }
+        .card:hover { 
+            transform: translateY(-10px); 
+            box-shadow: var(--hover-shadow); 
+        }
+    
+        .badge { 
+            position: absolute; top: 15px; left: 15px; color: white; 
+            padding: 6px 14px; border-radius: 50px; font-size: 10px; 
+            font-weight: 900; z-index: 10; backdrop-filter: blur(8px);
+            letter-spacing: 1px;
+        }
+        .badge-amz { background: rgba(0, 0, 0, 0.7); }
+        .badge-ali { background: rgba(255, 71, 71, 0.8); }
+    
+        .card-img-wrapper { 
+            width: 100%; height: 380px; background: #f9f9f9; 
+            display: flex; align-items: center; justify-content: center; 
+            overflow: hidden; cursor: pointer;
+        }
+        .card img { 
+            width: 100%; height: 100%; object-fit: cover; 
+            transition: transform 0.8s ease; 
+        }
+        .card:hover img { transform: scale(1.08); }
+    
+        .card-content { padding: 20px; text-align: center; background: #fff; }
+        .card-content h3 { 
+            margin: 0 0 15px 0; font-size: 13px; font-weight: 800; 
+            color: #111; height: 36px; overflow: hidden; 
+            line-height: 1.4; letter-spacing: 0.5px;
+            text-transform: uppercase; cursor: pointer;
+        }
+    
+        .btn { 
+            display: block; padding: 15px; border-radius: 12px; 
+            text-decoration: none; font-weight: 900; font-size: 10px; 
+            transition: all 0.3s; text-transform: uppercase; 
+            cursor: pointer; border: none; width: 100%; 
+            box-sizing: border-box; margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+        .btn-amazon { background: var(--dark); color: white !important; }
+        .btn-ali { background: #fff; color: var(--ali-orange) !important; border: 1.5px solid var(--ali-orange); }
+
+        .ali-zone { padding: 40px 0 80px; background: #fffafa; margin-top: 60px; }
+        footer { 
+            padding: 60px 20px; text-align: center; color: #ccc; 
+            font-size: 10px; letter-spacing: 4px; font-weight: 800; 
+        }
+
+        #toast { 
+            visibility: hidden; min-width: 250px; background: #111; color: #fff; 
+            text-align: center; border-radius: 100px; padding: 16px; 
+            position: fixed; z-index: 2000; left: 50%; bottom: 30px; 
+            transform: translateX(-50%); font-size: 12px; font-weight: 800;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        #toast.show { visibility: visible; animation: slideup 0.4s, slidedown 0.4s 2.1s; }
+
+        @keyframes slideup { from {bottom: 0; opacity: 0;} to {bottom: 30px; opacity: 1;} }
+        @keyframes slidedown { from {bottom: 30px; opacity: 1;} to {bottom: 0; opacity: 0;} }
     </style>
 </head>
 <body>
@@ -145,7 +299,7 @@ function renderGrids() {
 // 核心跳转与复制函数
 async function handleShop(url, coupon) {
     const toast = document.getElementById("toast");
-  
+
     if (coupon && navigator.clipboard) {
         try {
             await navigator.clipboard.writeText(coupon);
@@ -155,11 +309,11 @@ async function handleShop(url, coupon) {
             console.error("Copy failed", err);
         }
     }
-  
+
     setTimeout(() => {
         window.location.href = url;
     }, 400);
-  
+
     setTimeout(() => { toast.className = ""; }, 2000);
 }
 
@@ -176,7 +330,7 @@ function filterProducts() {
 // URL 参数自动搜索（支持 ?code=A13）
 window.onload = function() {
     renderGrids();
-  
+
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     if (code) {
