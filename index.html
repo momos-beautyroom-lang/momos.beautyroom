@@ -1,10 +1,59 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Momo's Beauty Room | Luxury Curation</title>
+    
+    <!-- ========== SEO 基础设置 ========== -->
+    <title>Momo's Beauty Room - Amazon Beauty Deals & Product Search by Code | Viral Skincare & Makeup</title>
+    <meta name="description" content="Find viral Amazon beauty products! Search by video code (A01-A99) to discover the best deals on skincare, makeup, LED masks, and personal care items. Today's deal: Viral Neck & Face LED Mask, EVFOFO Red Light Therapy, and more!">
+    <meta name="keywords" content="Amazon beauty deals, beauty product codes, LED face mask, red light therapy, EVFOFO mask, viral skincare, makeup deals, Amazon affiliate, TikTok beauty, Instagram beauty deals">
+    <meta name="author" content="Momo's Beauty Room">
+    
+    <!-- Open Graph (社交媒体分享优化) -->
+    <meta property="og:title" content="Momo's Beauty Room - Viral Beauty Deals">
+    <meta property="og:description" content="Search by code to find viral beauty products from my TikTok & Instagram videos! LED masks, skincare tools, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://momos-beautyroom.pages.dev/">
+    <meta property="og:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
+    <meta property="og:site_name" content="Momo's Beauty Room">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Momo's Beauty Room - Beauty Deals">
+    <meta name="twitter:description" content="Find beauty deals by searching video codes! LED masks, skincare, and more.">
+    <meta name="twitter:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
+    
+    <!-- 移动端优化 -->
+    <meta name="theme-color" content="#ff85a2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Canonical URL (防止重复内容) -->
+    <link rel="canonical" href="https://momos-beautyroom.pages.dev/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
+    
+    <!-- Google Site Verification (从 Google Search Console 获取后替换) -->
+    <!-- <meta name="google-site-verification" content="你的验证码" /> -->
+    
+    <!-- Structured Data (帮助 Google 理解你的网站) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Momo's Beauty Room",
+      "url": "https://momos-beautyroom.pages.dev/",
+      "description": "Find viral Amazon beauty products by searching video codes",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://momos-beautyroom.pages.dev/?code={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    
     <style>
         :root { 
             --bg: #ffffff; 
@@ -200,7 +249,8 @@ const amzProducts = [
     { id: "09", title: "EQQUALBERRY VITAMIN ILLUMINATING GLOW SERUM", link: "https://amzn.to/4axkqLs", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/09.png?raw=true", coupon: "" },
     { id: "10", title: "PURE SILK BONNET", link: "https://amzn.to/3OtgvXt", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/A10.png?raw=true", coupon: "" },
     { id: "11", title: "HIGH-SPEED IONIC HAIR DRYER & MULTI-STYLER", link: "https://amzn.to/4rGxdRQ", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/A11.png?raw=true", coupon: "" },
-    { id: "12", title: "7-COLOR MASSAGER", link: "https://amzn.to/4b1EGni", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/7bf1c2bee47c44a6d0b635e20c864233.png?raw=true", coupon: "" }
+    { id: "12", title: "7-COLOR MASSAGER", link: "https://amzn.to/4b1EGni", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/7bf1c2bee47c44a6d0b635e20c864233.png?raw=true", coupon: "" },
+    { id: "13", title: "VIRAL NECK & FACE LED MASK", link: "https://amzn.to/4bxJD7K", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true", coupon: "" }
 ];
 
 const aliProducts = [
@@ -216,7 +266,7 @@ function renderGrids() {
         <div class="card" data-code="A${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
             <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
-                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Product+A${p.id}'">
+                <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Product+A${p.id}'">
             </div>
             <div class="card-content">
                 <h3 onclick="handleShop('${p.link}', '${p.coupon}')">${p.title}</h3>
@@ -231,7 +281,7 @@ function renderGrids() {
         <div class="card" data-code="S${p.id}">
             <div class="badge badge-ali">S${p.id}</div>
             <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
-                <img src="${p.img}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Factory+Deal'">
+                <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Factory+Deal'">
             </div>
             <div class="card-content">
                 <h3 onclick="handleShop('${p.link}', '${p.coupon}')">${p.title}</h3>
@@ -274,7 +324,17 @@ function filterProducts() {
     }
 }
 
-window.onload = renderGrids;
+// URL 参数自动搜索（支持 ?code=A13）
+window.onload = function() {
+    renderGrids();
+    
+    const urlParams = new URLSearchParams(window.location.search);
+    const code = urlParams.get('code');
+    if (code) {
+        document.getElementById('searchInput').value = code.toUpperCase();
+        filterProducts();
+    }
+};
 </script>
 </body>
 </html>
