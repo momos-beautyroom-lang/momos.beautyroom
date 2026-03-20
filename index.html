@@ -1,27 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+    <!-- ========== SEO 基础设置 ========== -->
     <title>Momo's Beauty Room - Amazon Beauty Deals & Product Search by Code | Viral Skincare & Makeup</title>
-    <meta name="description" content="Find viral Amazon beauty products! Search by video code (A01-A99) to discover the best deals on skincare, makeup, LED masks, and personal care items. Today's deal: Viral Neck & Face LED Mask, EVFOFO Red Light Therapy, and more!" />
-    <meta name="keywords" content="Amazon beauty deals, beauty product codes, LED face mask, red light therapy, EVFOFO mask, viral skincare, makeup deals, Amazon affiliate, TikTok beauty, Instagram beauty deals" />
-    <meta name="author" content="Momo's Beauty Room" />
-    <meta property="og:title" content="Momo's Beauty Room - Viral Beauty Deals" />
-    <meta property="og:description" content="Search by code to find viral beauty products from my TikTok & Instagram videos! LED masks, skincare tools, and more." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://momos-beautyroom.pages.dev/" />
-    <meta property="og:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true" />
-    <meta property="og:site_name" content="Momo's Beauty Room" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Momo's Beauty Room - Beauty Deals" />
-    <meta name="twitter:description" content="Find beauty deals by searching video codes! LED masks, skincare, and more." />
-    <meta name="twitter:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true" />
-    <meta name="theme-color" content="#ff85a2" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="canonical" href="https://momos-beautyroom.pages.dev/" />
-    <link rel="icon" type="image/png" href="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true" />
+    <meta name="description" content="Find viral Amazon beauty products! Search by video code (A01-A99) to discover the best deals on skincare, makeup, LED masks, and personal care items. Today's deal: Viral Neck & Face LED Mask, EVFOFO Red Light Therapy, and more!">
+    <meta name="keywords" content="Amazon beauty deals, beauty product codes, LED face mask, red light therapy, EVFOFO mask, viral skincare, makeup deals, Amazon affiliate, TikTok beauty, Instagram beauty deals">
+    <meta name="author" content="Momo's Beauty Room">
+  
+    <!-- Open Graph (社交媒体分享优化) -->
+    <meta property="og:title" content="Momo's Beauty Room - Viral Beauty Deals">
+    <meta property="og:description" content="Search by code to find viral beauty products from my TikTok & Instagram videos! LED masks, skincare tools, and more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://momos-beautyroom.pages.dev/">
+    <meta property="og:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
+    <meta property="og:site_name" content="Momo's Beauty Room">
+  
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Momo's Beauty Room - Beauty Deals">
+    <meta name="twitter:description" content="Find beauty deals by searching video codes! LED masks, skincare, and more.">
+    <meta name="twitter:image" content="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
+  
+    <!-- 移动端优化 -->
+    <meta name="theme-color" content="#ff85a2">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  
+    <!-- Canonical URL (防止重复内容) -->
+    <link rel="canonical" href="https://momos-beautyroom.pages.dev/">
+  
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/9f294fd61e962918bc23b5367836e8b1.jpg?raw=true">
+  
+    <!-- Google Site Verification (从 Google Search Console 获取后替换) -->
+    <!-- <meta name="google-site-verification" content="你的验证码" /> -->
+  
+    <!-- Structured Data (帮助 Google 理解你的网站) -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -36,8 +53,9 @@
       }
     }
     </script>
+  
     <style>
-        /* (省略，保持原样) */
+        /* 保持原有样式不变 */
     </style>
 </head>
 <body>
@@ -46,7 +64,7 @@
 
 <div class="search-section">
     <div class="guide-text">The World's Most Advanced Beauty Curation</div>
-    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="SEARCH CODE (e.g. A01)" autofocus />
+    <input type="text" id="searchInput" oninput="filterProducts()" placeholder="SEARCH CODE (e.g. A01)" autofocus>
 </div>
 
 <div id="toast">CODE COPIED! REDIRECTING... ✨</div>
@@ -64,6 +82,7 @@
 </footer>
 
 <script>
+// 数据配置
 const amzProducts = [
     { id: "01", title: "PRO LED FACIAL THERAPY DEVICE", link: "https://amzn.to/4rhDTWd", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/01.png?raw=true", coupon: "" },
     { id: "02", title: "ABIB QUICK SUNSTICK : PROTECTION BAR", link: "https://www.amazon.com/Abib-Smoothing-Non-Sticky-Protection-Long-lasting/dp/B0DSMTDVCH", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom-lang.github.io/blob/main/002.png?raw=true", coupon: "MOMO20" },
@@ -87,6 +106,7 @@ const aliProducts = [
     { id: "01", title: "CICA CALMING AMPOULE (FACTORY)", link: "https://s.click.aliexpress.com/e/_c3imNgXV", img: "https://github.com/momos-beautyroom-lang/momos.beautyroom/blob/main/S01.png?raw=true", coupon: "ALISAVE5" }
 ];
 
+// 渲染函数
 function renderGrids() {
     const amzGrid = document.getElementById('amazonGrid');
     const aliGrid = document.getElementById('aliGrid');
@@ -95,7 +115,7 @@ function renderGrids() {
         <div class="card" data-code="A${p.id}">
             <div class="badge badge-amz">A${p.id}</div>
             <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
-                <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Product+A${p.id}'" />
+                <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Product+A${p.id}'">
             </div>
             <div class="card-content">
                 <h3 onclick="handleShop('${p.link}', '${p.coupon}')">${p.title}</h3>
@@ -110,7 +130,7 @@ function renderGrids() {
         <div class="card" data-code="S${p.id}">
             <div class="badge badge-ali">S${p.id}</div>
             <div class="card-img-wrapper" onclick="handleShop('${p.link}', '${p.coupon}')">
-                <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Factory+Deal'" />
+                <img src="${p.img}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/500x700?text=Factory+Deal'">
             </div>
             <div class="card-content">
                 <h3 onclick="handleShop('${p.link}', '${p.coupon}')">${p.title}</h3>
@@ -122,9 +142,10 @@ function renderGrids() {
     `).join('');
 }
 
+// 核心跳转与复制函数
 async function handleShop(url, coupon) {
     const toast = document.getElementById("toast");
-
+  
     if (coupon && navigator.clipboard) {
         try {
             await navigator.clipboard.writeText(coupon);
@@ -134,14 +155,15 @@ async function handleShop(url, coupon) {
             console.error("Copy failed", err);
         }
     }
-
+  
     setTimeout(() => {
         window.location.href = url;
     }, 400);
-
+  
     setTimeout(() => { toast.className = ""; }, 2000);
 }
 
+// 搜索过滤
 function filterProducts() {
     let input = document.getElementById('searchInput').value.toUpperCase();
     let cards = document.getElementsByClassName('card');
@@ -151,9 +173,10 @@ function filterProducts() {
     }
 }
 
+// URL 参数自动搜索（支持 ?code=A13）
 window.onload = function() {
     renderGrids();
-
+  
     const urlParams = new URLSearchParams(window.location.search);
     const code = urlParams.get('code');
     if (code) {
